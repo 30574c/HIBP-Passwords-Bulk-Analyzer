@@ -19,8 +19,10 @@ ascii_password_byte = bytes(password, 'ascii')
 hash_object = hashlib.sha1(ascii_password_byte)
 hash = hash_object.hexdigest()
 
-with open("FILENAME") as infile:
-    for line in tqdm(infile, total=rawcount("FILENAME")):
+file = 'X:/pwnedpasswords.txt'
+
+with open(file) as infile:
+    for line in tqdm(infile, total=rawcount(file)):
         if hash.lower() == line.split(':')[0].lower():
             print("MATCH!")
             print(line)
